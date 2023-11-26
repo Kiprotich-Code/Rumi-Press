@@ -1,7 +1,6 @@
 {%extends '../base.html'%}
 
 {% block content %}
-{% if authors %}
 <ul>
     <li>{{author.name}}</li>
     <li>{{author.country_of_origin}}</li>
@@ -9,8 +8,4 @@
     <li>{{author.date_born}}</li>
     <li>{{author.bio}}</li>
 </ul>
-
-{% else %}
-    <h3>No authors here</h3>
-{% endif %}
 {% endblock %}

@@ -16,4 +16,5 @@ class AuthorsListView(generic.ListView):
 class AuthorsDetailView(generic.DetailView):
     model = Authors
     template_name = 'main/author_details.html'
+    context_object_name = 'author'
 
