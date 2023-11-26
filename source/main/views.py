@@ -9,5 +9,11 @@ def home(request):
 
 class AuthorsListView(generic.ListView):
     model = Authors
+    context_object_name = 'authors'
     template_name = 'main/authors.html'
+
+
+class AuthorsDetailView(generic.DetailView):
+    model = Authors
+    template_name = 'main/author_details.html'
 
