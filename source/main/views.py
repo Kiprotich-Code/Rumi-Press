@@ -3,9 +3,11 @@ from django.views import generic
 from .models import Authors
 
 # Create your views here.
-def home(request):
+def index(request):
     return render(request, 'base.html', {})
 
+def home(request):
+    return render(request, 'main/dashboard.html')
 
 class AuthorsListView(generic.ListView):
     model = Authors
