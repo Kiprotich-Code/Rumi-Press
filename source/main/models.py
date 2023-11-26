@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Authors():
+class Authors(models.Model):
     name = models.CharField(max_length=100)
     country_of_origin = models.CharField(max_length=25, blank=True)
     date_born = models.DateTimeField()
