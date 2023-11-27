@@ -26,3 +26,11 @@
   color: #fff;
   margin-left: -62px;
 }
+
+li {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none !important;
+}

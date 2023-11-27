@@ -17,14 +17,14 @@
 <body>
     <div class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column" id="sidebar">
         <ul class="nav flex-column text-white w-100">
-            <a href="#" class="nav-link h3 text-white my-2">
+            <a href="{%url 'home'%}" class="nav-link h3 text-white my-2">
                 Rumi Press
             </a>
             <li href="#" class="nav-link">
-                <span class="mx-2"><i class="fa fa-home" aria-hidden="true"></i>  Home</span>
+                <span class="mx-2"><i class="fa fa-home" aria-hidden="true"></i><a href="{% url 'home'%}"> Home</a></span>
             </li>
-            <li href="#" class="nav-link">
-                <span class="mx-2"><i class="fa fa-users" aria-hidden="true"></i>  Authors</span>
+            <li class="nav-link">
+                <span class="mx-2"><i class="fa fa-users" aria-hidden="true"></i><a href="{% url 'authors'%}"> Authors</a></span>
             </li>
             <li href="#" class="nav-link">
                 <span class="mx-2"><i class="fa fa-book" aria-hidden="true"></i> Books</span>
@@ -40,10 +40,11 @@
         <a class="btn border-0" id="menu-btn">
             <i class="fa fa-bars" aria-hidden="true"></i>
         </a><br>
-
-        Main Content Here
-        ...
-        Replace the menu toggle icon as per your needs<br>
+        {% block content %}
+            <div class="container">
+                <h3>This is the home page, yooh!</h3>
+            </div>
+        {% endblock %}
     </div>
     <script src="{% static 'js/dashboard.js'%}"></script>
 </body>
