@@ -36,3 +36,9 @@ def delete_author(request, author_id):
     author = Authors.objects.get(pk=author_id)
     author.delete()
     return redirect('authors')
+
+def update_author(request, author_id):
+    author = Authors.objects.get(pk=author_id)
+    form = AddAuthorForm(request.POST or None)
+
+    return render(request, 'main/update_author.html', {'author': author, 'form': form})

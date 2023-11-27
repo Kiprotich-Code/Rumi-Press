@@ -27,7 +27,7 @@
       <td>{{author.country_of_origin}}</td>
       <td>{{author.interests}}</td>
       <td><a href="{% url 'author_details' pk=author.pk %}">Details</a></td>
-      <td><a href="{% url 'author_details' pk=author.pk %}">Update</a></td>
+      <td><a href="{% url 'update_author' author.id %}">Update</a></td>
       <td><a href="{% url 'delete_author' author.id %}">Delete</a></td>
     </tr>
   </tbody>
