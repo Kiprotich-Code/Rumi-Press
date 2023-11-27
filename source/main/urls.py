@@ -6,4 +6,5 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('authors/', views.AuthorsListView.as_view(), name='authors'),
     path('author_details/<int:pk>', views.AuthorsDetailView.as_view(), name='author_details'),
+    path('add_authors/', views.add_authors, name='add_authors')
 ]
