@@ -1,11 +1,31 @@
-{%extends '../base.html'%}
+{%extends './dashboard.html'%}
+{% load static %}
 
 {% block content %}
-<ul>
-    <li>{{author.name}}</li>
-    <li>{{author.country_of_origin}}</li>
-    <li>{{author.interests}}</li>
-    <li>{{author.date_born}}</li>
-    <li>{{author.bio}}</li>
-</ul>
-{% endblock %}
+<div class="container-fluid p-2">
+    <button type="button" class="btn btn-outline-success btn-lg btn-block">You Can Click This Button To Add
+        Authors!</button>
+</div>
+
+<div class="row p-2">
+    <div class="col-md-4">
+        <img src="{%static 'images/lk.jpg' %}" alt="Authors Image" style="width: 350px;">
+    </div>
+    <div class="col">
+        <h4 class="text-primary">About the author</h3>
+        <hr>
+        <div>
+            <div class="p-2">
+                <label>Name: </label>
+                <h4>{{author.name}}</h4>
+                <label>Country Of Origin: </label>
+                <h4>{{author.country_of_origin}}</h4>
+                <label>Date of Birth: </label>
+                <h4>{{author.date_born}}</h4>
+                <label>Interests: </label>
+                <h4>{{author.interests}}</h4>
+                <label>Bio: </label>
+                <p>{{author.bio}}</p>
+            </div>
+        </div>
+        {% endblock %}
