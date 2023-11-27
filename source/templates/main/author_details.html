@@ -3,9 +3,9 @@
 
 {% block content %}
 <div class="container-fluid p-2 align-items-between">
-    <button type="button" class="btn btn-outline-success btn-lg btn-block">Add Authors</button>    
+    <button type="button" class="btn btn-outline-success btn-lg btn-block"><a href="{% url 'add_authors'%}">Add Authors</a></button>    
     <button type="button" class="btn btn-outline-primary btn-lg btn-block">Update Author Details</button>
-    <button type="button" class="btn btn-outline-danger btn-lg btn-block">Delete Author</button>
+    <button type="button" class="btn btn-outline-danger btn-lg btn-block"><a href="{url 'delete_author' pk=author.pk}">Delete Author</a></button>
 </div>
 
 <div class="row p-2">

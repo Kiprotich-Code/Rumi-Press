@@ -31,3 +31,8 @@ def add_authors(request):
     
     context = {'form': form}
     return render(request, 'main/add_authors.html', context)
+
+def delete_author(request, author_id):
+    author = Authors.objects.get(pk=author_id)
+    author.delete()
+    return redirect('authors')
