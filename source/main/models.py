@@ -32,13 +32,13 @@ class Books(models.Model):
     book_id = models.IntegerField(primary_key=True, editable=True)
     title = models.CharField(max_length=55)
     subtitle = models.CharField(max_length=55)
-    authors = models.ForeignKey(Authors, on_delete=models.CASCADE)
+    authors = models.ManyToManyField(Authors)
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE, blank=True)
     published_date = models.DateField()
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True)
+    category = models.ManyToManyField(Category)
 
 
 class Expense(models.Model):
-    book = models.OneToOneField(Books, on_delete=models.CASCADE)
+    book = models.ForeignKey(Books, on_delete=models.CASCADE)
     distribution_date = models.DateField()
     distribution_expense = models.FloatField()
