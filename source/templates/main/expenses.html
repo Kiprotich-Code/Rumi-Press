@@ -1,0 +1,33 @@
+{% extends './dashboard.html'%}
+
+{% block content %}
+<div class="container-fluid p-2">
+  <a type="button" class="btn btn-outline-success btn-lg btn-block" href="{%url 'add_expense'%}">You Can Click This Button To Add an Expense!</a>
+</div>
+
+<h1>Expenses</h1>
+{% if expenses %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Book</th>
+      <th scope="col">Distribution Date</th>
+      <th scope="col">Distribution Expense</th>
+    </tr>  
+  </thead>
+  {% for expense in expenses %}
+  <tbody>
+    <tr>
+      <th scope="row">*</th>
+      <td>{{expense.book}}</td>
+      <td>{{expense.distribution_date}}</td>
+      <td>{{expense.distribution_expense}}</td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+{% else %}
+<p>Currently no expenses, check back later!</p>
+{% endif %}
+{% endblock %}

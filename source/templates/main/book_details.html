@@ -1,0 +1,35 @@
+{%extends './dashboard.html'%}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid p-2">
+    <a type="button" class="btn btn-outline-secondary btn-lg btn-block m-2" href="{% url 'books'%}">All Books</button>
+    <a type="button" class="btn btn-outline-success btn-lg btn-block m-2" href="{% url 'add_books'%}">Add Books</a>  
+    <a type="button" class="btn btn-outline-primary btn-lg btn-block m-2" href="{% url 'update_book' books.book_id%}">Update Books Details</button>
+    <a type="button" class="btn btn-outline-danger btn-lg btn-block m-2" href="{% url 'delete_book' books.book_id%}">Delete Book</a>
+</div>
+
+<div class="row p-2">
+    <div class="col-md-4">
+        <img src="{%static 'images/img.jpeg' %}" alt="Book's Image" style="width: 350px; height: 100%;">
+    </div>
+    <div class="col">
+        <h4 class="text-primary">Book Details</h3>
+        <hr>
+        <div>
+            <div class="p-2">
+                <label>Title: </label>
+                <h4>{{books.title}}</h4>
+                <label>Subtitle: </label>
+                <h4>{{books.subtitle}}</h4>
+                <label>Author: </label>
+                <h4>{{books.author}}</h4>
+                <label>Publisher: </label>
+                <h4>{{books.publisher}}</h4>
+                <label>Published date: </label>
+                <h4>{{books.published_date}}</h4>
+                <label>Category: </label>
+                <h4>{{books.category}}</p>
+            </div>
+        </div>
+        {% endblock %}

@@ -1,0 +1,41 @@
+{% extends './dashboard.html'%}
+
+{% block content %}
+<div class="container-fluid p-2">
+  <a type="button" class="btn btn-outline-success btn-lg btn-block" href="{%url 'add_books'%}">You Can Click This Button To Add Books!</a>
+</div>
+
+<h1>Books</h1>
+{% if books %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Title</th>
+      <th scope="col">Publisher</th>
+      <th scope="col">Author</th>
+      <th scope="cole">Category</th>
+      <th scope="cole">#</th>
+      <th scope="cole">#</th>
+      <th scope="cole">#</th>
+    </tr>  
+  </thead>
+  {% for book in books %}
+  <tbody>
+    <tr>
+      <th scope="row">*</th>
+      <td>{{book.title}}</td>
+      <td>{{book.publisher}}</td>
+      <td>{{book.authors}}</td>
+      <td>{{book.category}}</td>
+      <td><a href="{% url 'book_details' pk=book.pk %}">Details</a></td>
+      <td><a href="{% url 'update_book' book.book_id%}">Update</a></td>
+      <td><a href="{% url 'delete_book' book.book_id%}">Delete</a></td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+{% else %}
+<p>There are no books available.</p>
+{% endif %}
+{% endblock %}
