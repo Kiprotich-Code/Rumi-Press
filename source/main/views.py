@@ -64,15 +64,15 @@ class BooksDetailView(generic.DetailView):
     context_object_name = 'books'
 
 def add_books(request):
-    form = AddBookForm
+    form = AddBookForm()
     if request.method == 'POST':
         form = AddBookForm(request.POST)
+        authors = request.POST['authors']
         if form.is_valid():
+
             form.save()
             return redirect('books')
-    
-    context = {'form': form}
-    return render(request, 'main/add_book.html', context)
+    return render(request, 'main/add_book.html', {'form': form})
 
 
 def delete_book(request, book_id):

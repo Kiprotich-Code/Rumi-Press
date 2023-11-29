@@ -29,10 +29,10 @@ class Publisher(models.Model):
 
 
 class Books(models.Model):
-    book_id = models.CharField(max_length=20, primary_key=True, default=10)
+    book_id = models.CharField(max_length=20, primary_key=True)
     title = models.CharField(max_length=55)
     subtitle = models.CharField(max_length=55)
-    authors = models.ManyToManyField(Authors, blank=True, default='author')
+    authors = models.ManyToManyField(Authors, blank=True)
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE, blank=True)
     published_date = models.DateField()
     category = models.ManyToManyField(Category)
@@ -45,3 +45,4 @@ class Expense(models.Model):
     book = models.ForeignKey(Books, to_field= 'book_id',on_delete=models.CASCADE)
     distribution_date = models.DateField()
     distribution_expense = models.FloatField()
+    confirmed_by = models.CharField(max_length=100)

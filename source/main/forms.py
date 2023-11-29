@@ -9,20 +9,18 @@ class AddAuthorForm(ModelForm):
         fields = '__all__'
 
 class AddBookForm(ModelForm):
-    class Meta:
-        model = Books
-        fields = '__all__'
-
-        authors = forms.ModelMultipleChoiceField(
+    authors = forms.ModelMultipleChoiceField(
             queryset = Authors.objects.all(),
             widget = forms.CheckboxSelectMultiple 
         )
 
-        category = forms.ModelMultipleChoiceField(
+    category = forms.ModelMultipleChoiceField(
             queryset = Category.objects.all(),
             widget = forms.CheckboxSelectMultiple 
         )
-
+    class Meta:
+        model = Books
+        fields = '__all__'
 
 
 class AddExpenseForm(ModelForm):
