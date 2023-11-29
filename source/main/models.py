@@ -29,10 +29,10 @@ class Publisher(models.Model):
 
 
 class Books(models.Model):
-    book_id = models.IntegerField(primary_key=True)
+    book_id = models.CharField(max_length=20, primary_key=True, default=10)
     title = models.CharField(max_length=55)
     subtitle = models.CharField(max_length=55)
-    authors = models.ManyToManyField(Authors, blank=True)
+    authors = models.ManyToManyField(Authors, blank=True, default='author')
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE, blank=True)
     published_date = models.DateField()
     category = models.ManyToManyField(Category)
