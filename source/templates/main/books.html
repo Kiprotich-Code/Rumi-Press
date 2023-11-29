@@ -27,8 +27,16 @@
       <th scope="row">*</th>
       <td>{{book.title}}</td>
       <td>{{book.publisher}}</td>
-      <td>{{book.authors}}</td>
-      <td>{{book.category}}</td>
+      <td>
+        {% for author in book.authors.all %}
+            {{ author.name }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+      </td>
+      <td>
+        {% for genre in book.category.all %}
+            {{ genre.name }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+      </td>
       <td><a href="{% url 'book_details' pk=book.pk %}">Details</a></td>
       <td><a href="{% url 'update_book' book.book_id%}">Update</a></td>
       <td><a href="{% url 'delete_book' book.book_id%}">Delete</a></td>

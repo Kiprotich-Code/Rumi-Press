@@ -38,7 +38,8 @@ class Books(models.Model):
     category = models.ManyToManyField(Category)
 
     def __str__(self):
-        return f'{self.title} by {self.authors}'
+        book_author = ", ".join([author.name for author in self.authors.all()])
+        return f'{self.title} by {book_author}'
 
 
 class Expense(models.Model):
