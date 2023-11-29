@@ -32,8 +32,8 @@ class Books(models.Model):
     book_id = models.CharField(max_length=20, primary_key=True)
     title = models.CharField(max_length=55)
     subtitle = models.CharField(max_length=55)
-    authors = models.ManyToManyField(Authors, blank=True)
-    publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE, blank=True)
+    authors = models.ManyToManyField(Authors, blank=False)
+    publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
     published_date = models.DateField()
     category = models.ManyToManyField(Category)
 
