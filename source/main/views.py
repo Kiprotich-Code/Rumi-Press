@@ -130,7 +130,38 @@ def update_expense(request, expense_id):
 #-------------------------------------------------------#
 #------------Views for Publisher Model------------------#
 #-------------------------------------------------------#
+class PublisherListView(generic.ListView):
+    model = Publisher
+    context_object_name = 'publishers'
+    template_name = 'main/publishers.html'
 
+def add_publisher(request):
+    form = AddPublisher
+    if request.method == 'POST':
+        form = AddPublisher(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('publishers')
+    
+    context = {'form': form}
+    return render(request, 'main/add_publisher.html', context)
+
+
+def delete_publisher(request, pub_id):
+    publisher = Publisher.objects.get(pk=pub_id)
+    publisher.delete()
+    return redirect('publishers')
+
+
+def update_publisher(request, pub_id):
+    publisher = Publisher.objects.get(pk=pub_id)
+    form = AddPublisher(request.POST or None, instance=publisher)
+    if form.is_valid():
+        form.save()
+        return redirect('publishers')
+    
+    context = {'publisher': publisher, 'form': form}
+    return render(request, 'main/update_publisher.html', context)
 
 
 #-------------------------------------------------------#

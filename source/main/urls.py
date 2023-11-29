@@ -24,4 +24,10 @@ urlpatterns = [
     path('add_expense/', views.add_expense, name='add_expense'),
     path('delete_expense/<expense_id>', views.delete_expense, name='delete_expense'),
     path('update_expense/<expense_id>', views.update_expense, name='update_expense'),
+
+    # Urls for publishers
+    path('publishers/', views.PublisherListView.as_view(), name='publishers'),
+    path('add_publisher/', views.add_publisher, name='add_publisher'),
+    path('delete_publisher/<pub_id>', views.delete_publisher, name='delete_publisher'),
+    path('update_publisher/<pub_id>', views.update_publisher, name='update_publisher'),
 ]

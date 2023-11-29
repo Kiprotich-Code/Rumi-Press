@@ -27,3 +27,8 @@ class AddExpenseForm(ModelForm):
     class Meta:
         model = Expense
         fields = '__all__'
+
+class AddPublisher(ModelForm):
+    class Meta:
+        model = Expense
+        fields = '__all__'
