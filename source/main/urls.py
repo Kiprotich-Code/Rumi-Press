@@ -22,4 +22,6 @@ urlpatterns = [
     # Urls for expenses 
     path('expenses/', views.ExpenseListView.as_view(), name='expenses'),
     path('add_expense/', views.add_expense, name='add_expense'),
+    path('delete_expense/<expense_id>', views.delete_expense, name='delete_expense'),
+    path('update_expense/<expense_id>', views.update_expense, name='update_expense'),
 ]

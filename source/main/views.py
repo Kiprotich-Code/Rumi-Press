@@ -68,7 +68,7 @@ def add_books(request):
     if request.method == 'POST':
         form = AddBookForm(request.POST)
         if form.is_valid():
-            
+
             form.save()
             return redirect('books')
     
@@ -77,8 +77,8 @@ def add_books(request):
 
 
 def delete_book(request, book_id):
-    author = Books.objects.get(pk=book_id)
-    author.delete()
+    book = Books.objects.get(pk=book_id)
+    book.delete()
     return redirect('books')
 
 def update_book(request, book_id):
@@ -110,6 +110,29 @@ def add_expense(request):
     return render(request, 'main/add_expense.html', context)
 
 
+def delete_expense(request, expense_id):
+    expense = Expense.objects.get(pk=expense_id)
+    expense.delete()
+    return redirect('expenses')
+
+
+def update_expense(request, expense_id):
+    expense = Expense.objects.get(pk=expense_id)
+    form = AddExpenseForm(request.POST or None, instance=expense)
+    if form.is_valid():
+        form.save()
+        return redirect('expenses')
+    
+    context = {'expense': expense, 'form': form}
+    return render(request, 'main/update_expense.html', context)
+
+
 #-------------------------------------------------------#
 #------------Views for Publisher Model------------------#
+#-------------------------------------------------------#
+
+
+
+#-------------------------------------------------------#
+#------------Views for Category Model-------------------#
 #-------------------------------------------------------#

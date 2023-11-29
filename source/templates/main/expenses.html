@@ -14,6 +14,8 @@
       <th scope="col">Book</th>
       <th scope="col">Distribution Date</th>
       <th scope="col">Distribution Expense</th>
+      <th>#</th>
+      <th>#</th>
     </tr>  
   </thead>
   {% for expense in expenses %}
@@ -23,6 +25,8 @@
       <td>{{expense.book.title}}</td>
       <td>{{expense.distribution_date}}</td>
       <td>{{expense.distribution_expense}}</td>
+      <td><a href="{% url 'update_expense' expense.id%}"> Update</a></td>
+      <td><a href="{% url 'delete_expense' expense.id%}"> Delete</a></td>
     </tr>
   </tbody>
   {% endfor %}
