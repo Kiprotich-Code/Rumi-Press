@@ -1,0 +1,35 @@
+{% extends './dashboard.html'%}
+
+{% block content %}
+<div class="container-fluid p-2">
+  <a type="button" class="btn btn-outline-success btn-lg btn-block" href="{%url 'add_publisher'%}">You Can Click This Button To Add Publishers!</a>
+</div>
+
+<h1>Publishers</h1>
+{% if publishers %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Publisher</th>
+      <th scope="col">About</th>
+      <th scope="cole">#</th>
+      <th scope="cole">#</th>
+    </tr>  
+  </thead>
+  {% for publisher in publishers %}
+  <tbody>
+    <tr>
+      <th scope="row">*</th>
+      <td>{{publisher.pub_name}}</td>
+      <td>{{publisher.additional_info}}</td>
+      <td><a href="{% url 'update_publisher' publisher.id%}">Update</a></td>
+      <td><a href="{% url 'delete_publisher' publisher.id%}">Delete</a></td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+{% else %}
+<p>No publishers here yet. You can add them using the button above.</p>
+{% endif %}
+{% endblock %}

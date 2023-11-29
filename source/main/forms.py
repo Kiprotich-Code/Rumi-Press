@@ -30,5 +30,5 @@ class AddExpenseForm(ModelForm):
 
 class AddPublisher(ModelForm):
     class Meta:
-        model = Expense
+        model = Publisher
         fields = '__all__'
