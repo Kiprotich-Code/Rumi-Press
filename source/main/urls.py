@@ -30,4 +30,8 @@ urlpatterns = [
     path('add_publisher/', views.add_publisher, name='add_publisher'),
     path('delete_publisher/<pub_id>', views.delete_publisher, name='delete_publisher'),
     path('update_publisher/<pub_id>', views.update_publisher, name='update_publisher'),
+
+    # Urls for category
+    path('add_category/', views.add_category, name='add_category'),
+    path('update_category/<cat_id>', views.update_category, name='update_category'),   
 ]

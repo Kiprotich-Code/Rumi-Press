@@ -167,3 +167,24 @@ def update_publisher(request, pub_id):
 #-------------------------------------------------------#
 #------------Views for Category Model-------------------#
 #-------------------------------------------------------#
+def add_category(request):
+    form = AddCategory
+    if request.method == 'POST':
+        form = AddCategory(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('books')
+    
+    context = {'form': form}
+    return render(request, 'main/add_category.html', context)
+
+
+def update_category(request, cat_id):
+    category = category.objects.get(pk=cat_id)
+    form = AddCategory(request.POST or None, instance=category)
+    if form.is_valid():
+        form.save()
+        return redirect('books')
+    
+    context = {'category': category, 'form': form}
+    return render(request, 'main/update_category.html', context)

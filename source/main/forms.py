@@ -32,3 +32,8 @@ class AddPublisher(ModelForm):
     class Meta:
         model = Publisher
         fields = '__all__'
+
+class AddCategory(ModelForm):
+    class Meta:
+        model = Category
+        fields = '__all__'
