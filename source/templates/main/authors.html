@@ -7,7 +7,7 @@
 
 <h1>Authors</h1>
 {% if authors %}
-<table class="table">
+<table class="table table-bordered">
   <thead class="thead-dark">
     <tr>
       <th scope="col"></th>
@@ -26,9 +26,9 @@
       <td>{{author.name}}</td>
       <td>{{author.country_of_origin}}</td>
       <td>{{author.interests}}</td>
-      <td><a href="{% url 'author_details' pk=author.pk %}">Details</a></td>
-      <td><a href="{% url 'update_author' author.id %}">Update</a></td>
-      <td><a href="{% url 'delete_author' author.id %}">Delete</a></td>
+      <td><a href="{% url 'author_details' pk=author.pk %}" class="btn btn-outline-success btn-sm btn-block">Details</a></td>
+      <td><a href="{% url 'update_author' author.id %}" class="btn btn-outline-primary btn-sm btn-block">Update</a></td>
+      <td><a href="{% url 'delete_author' author.id %}" class="btn btn-outline-danger btn-sm btn-block">Delete</a></td>
     </tr>
   </tbody>
   {% endfor %}

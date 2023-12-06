@@ -38,6 +38,26 @@
 				</li>
 
 				<li class="sidebar-item nav-item mb-1">
+					<a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#authors"
+						aria-expanded="false" aria-controls="settings">
+						<i class="fa-regular fa-newspaper"></i>
+						<span class="topic">Manage Authors </span>
+					</a>
+					<ul id="authors" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+						<li class="sidebar-item ms-4">
+							<a href="{% url 'authors'%}" class="sidebar-link">
+								<span class="topic"> Authors</span>
+							</a>
+						</li>
+						<li class="sidebar-item ms-4">
+							<a href="{% url 'add_authors'%}" class="sidebar-link">
+								<span class="topic">Add Author</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<li class="sidebar-item nav-item mb-1">
 					<a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#books"
 						aria-expanded="false" aria-controls="settings">
 						<i class="fa-regular fa-bookmark"></i>

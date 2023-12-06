@@ -7,12 +7,11 @@
 
 <h1>Publishers</h1>
 {% if publishers %}
-<table class="table">
+<table class="table table-bordered">
   <thead class="thead-dark">
     <tr>
       <th scope="col"></th>
       <th scope="col">Publisher</th>
-      <th scope="col">About</th>
       <th scope="cole">#</th>
       <th scope="cole">#</th>
     </tr>  
@@ -22,9 +21,8 @@
     <tr>
       <th scope="row">*</th>
       <td>{{publisher.pub_name}}</td>
-      <td>{{publisher.additional_info}}</td>
-      <td><a href="{% url 'update_publisher' publisher.id%}">Update</a></td>
-      <td><a href="{% url 'delete_publisher' publisher.id%}">Delete</a></td>
+      <td><a href="{% url 'update_publisher' publisher.id%}" class="btn btn-outline-success btn-sm btn-block">Update</a></td>
+      <td><a href="{% url 'delete_publisher' publisher.id%}" class="btn btn-outline-danger btn-sm btn-block">Delete</a></td>
     </tr>
   </tbody>
   {% endfor %}
