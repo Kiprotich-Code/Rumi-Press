@@ -2,10 +2,11 @@ from django.shortcuts import render, redirect
 from django.views import generic
 from .models import *
 from .forms import *
+import plotly.express as px
 
 # Create your views here.
 def index(request):
-    return render(request, 'base.html', {})
+    return render(request, 'base.html')
 
 def home(request):
     return render(request, 'main/dashboard.html')
@@ -17,6 +18,7 @@ class AuthorsListView(generic.ListView):
     model = Authors
     context_object_name = 'authors'
     template_name = 'main/authors.html'
+    paginate_by = 4
 
 
 class AuthorsDetailView(generic.DetailView):

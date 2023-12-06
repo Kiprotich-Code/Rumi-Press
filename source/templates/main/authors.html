@@ -2,7 +2,8 @@
 
 {% block content %}
 <div class="container-fluid p-2">
-  <a type="button" class="btn btn-outline-success btn-lg btn-block" href="{%url 'add_authors'%}">You Can Click This Button To Add Authors!</a>
+  <a type="button" class="btn btn-outline-success btn-lg btn-block" href="{%url 'add_authors'%}">You Can Click This
+    Button To Add Authors!</a>
 </div>
 
 <h1>Authors</h1>
@@ -26,7 +27,8 @@
       <td>{{author.name}}</td>
       <td>{{author.country_of_origin}}</td>
       <td>{{author.interests}}</td>
-      <td><a href="{% url 'author_details' pk=author.pk %}" class="btn btn-outline-success btn-sm btn-block">Details</a></td>
+      <td><a href="{% url 'author_details' pk=author.pk %}" class="btn btn-outline-success btn-sm btn-block">Details</a>
+      </td>
       <td><a href="{% url 'update_author' author.id %}" class="btn btn-outline-primary btn-sm btn-block">Update</a></td>
       <td><a href="{% url 'delete_author' author.id %}" class="btn btn-outline-danger btn-sm btn-block">Delete</a></td>
     </tr>

@@ -6,9 +6,9 @@
   <a type="button" class="btn btn-outline-primary btn-lg btn-block" href="{%url 'add_category'%}">Add Book Category</a>
 </div>
 
-<h1>Books</h1>
+<h1>Book Categories</h1>
 {% if categories %}
-<table class="table">
+<table class="table table-bordered">
   <thead class="thead-dark">
     <tr>
       <th scope="col"></th>
@@ -23,7 +23,7 @@
       <th scope="row">*</th>
       <td>{{category.name}}</td>
       <td>{{category.additional_info}}</td>
-      <td><a href="{% url 'update_category' category.id%}">Update</a></td>
+      <td><a href="{% url 'update_category' category.id%}" class="btn btn-outline-primary btn-sm btn-block">Update</a></td>
     </tr>
   </tbody>
   {% endfor %}
