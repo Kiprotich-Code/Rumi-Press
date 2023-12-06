@@ -45,12 +45,12 @@
 					</a>
 					<ul id="books" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
 						<li class="sidebar-item ms-4">
-							<a href="#" class="sidebar-link">
+							<a href="{% url 'books'%}" class="sidebar-link">
 								<span class="topic"> Book List</span>
 							</a>
 						</li>
 						<li class="sidebar-item ms-4">
-							<a href="#" class="sidebar-link">
+							<a href="{% url 'add_books'%}" class="sidebar-link">
 								<span class="topic">Add Books</span>
 							</a>
 						</li>
@@ -65,12 +65,12 @@
 					</a>
 					<ul id="publishers" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
 						<li class="sidebar-item ms-4">
-							<a href="#" class="sidebar-link">
+							<a href="{% url 'publishers'%}" class="sidebar-link">
 								<span class="topic"> Publishers List</span>
 							</a>
 						</li>
 						<li class="sidebar-item ms-4">
-							<a href="#" class="sidebar-link">
+							<a href="{% url 'add_publisher' %}" class="sidebar-link">
 								<span class="topic">Add Publishers</span>
 							</a>
 						</li>
@@ -85,12 +85,12 @@
 					</a>
 					<ul id="categories" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
 						<li class="sidebar-item ms-4">
-							<a href="#" class="sidebar-link">
+							<a href="{% url 'categories'%}" class="sidebar-link">
 								<span class="topic"> Categories List</span>
 							</a>
 						</li>
 						<li class="sidebar-item ms-4">
-							<a href="#" class="sidebar-link">
+							<a href="{% url 'add_category'%}" class="sidebar-link">
 								<span class="topic">Add Categories</span>
 							</a>
 						</li>
@@ -105,12 +105,12 @@
 					</a>
 					<ul id="expenses" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
 						<li class="sidebar-item ms-4">
-							<a href="#" class="sidebar-link">
+							<a href="{%url 'expenses' %}" class="sidebar-link">
 								<span class="topic"> Add Expenses</span>
 							</a>
 						</li>
 						<li class="sidebar-item ms-4">
-							<a href="#" class="sidebar-link">
+							<a href="{%url 'add_expense' %}" class="sidebar-link">
 								<span class="topic">Expenses</span>
 							</a>
 						</li>
@@ -167,7 +167,9 @@
 				<hr>
 				<div class="row">
 					<div class="col">
+                        {% block content %}
 						<p>Page content goes here</p>
+                        {% endblock %}
 					</div>
 				</div>
 			</div>
