@@ -32,6 +32,7 @@ urlpatterns = [
     path('update_publisher/<pub_id>', views.update_publisher, name='update_publisher'),
 
     # Urls for category
+    path('categories/', views.CategoryListView.as_view(), name='categories'),
     path('add_category/', views.add_category, name='add_category'),
-    path('update_category/<cat_id>', views.update_category, name='update_category'),   
+    path('update_category/<id>', views.update_category, name='update_category'),   
 ]

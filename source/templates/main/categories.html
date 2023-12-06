@@ -1,0 +1,34 @@
+{% extends './dashboard.html'%}
+
+{% block content %}
+<div class="container-fluid p-2">
+  <a type="button" class="btn btn-outline-success btn-lg btn-block" href="{%url 'add_books'%}">Add Books </a>
+  <a type="button" class="btn btn-outline-primary btn-lg btn-block" href="{%url 'add_category'%}">Add Book Category</a>
+</div>
+
+<h1>Books</h1>
+{% if categories %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Name</th>
+      <th scope="col">About</th>
+      <th scope="cole">#</th>
+    </tr>  
+  </thead>
+  {% for category in categories %}
+  <tbody>
+    <tr>
+      <th scope="row">*</th>
+      <td>{{category.name}}</td>
+      <td>{{category.additional_info}}</td>
+      <td><a href="{% url 'update_category' category.id%}">Update</a></td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+{% else %}
+<p>No data available available.</p>
+{% endif %}
+{% endblock %}

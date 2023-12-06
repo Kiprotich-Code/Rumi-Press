@@ -31,7 +31,7 @@
 			<hr>
 			<ul class="mynav nav nav-pills flex-column mb-auto">
 				<li class="nav-item mb-1">
-					<a href="#">
+					<a href="{% url 'home'%}">
 						<i class="fa-regular fa-user"></i>
 						Dashboard
 					</a>
@@ -106,12 +106,12 @@
 					<ul id="expenses" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
 						<li class="sidebar-item ms-4">
 							<a href="{%url 'expenses' %}" class="sidebar-link">
-								<span class="topic"> Add Expenses</span>
+								<span class="topic"> Expenses</span>
 							</a>
 						</li>
 						<li class="sidebar-item ms-4">
 							<a href="{%url 'add_expense' %}" class="sidebar-link">
-								<span class="topic">Expenses</span>
+								<span class="topic">Add Expenses</span>
 							</a>
 						</li>
 					</ul>
@@ -165,13 +165,48 @@
 				</nav>
 
 				<hr>
-				<div class="row">
-					<div class="col">
-                        {% block content %}
-						<p>Page content goes here</p>
-                        {% endblock %}
+				{% block content %}
+				<div class="container p-0 m-0 ">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="card mb-3">
+								<div class="card-body">
+								<h5 class="card-title">Expenses</h5>
+								<h2>10,000Ksh</h2>
+								<a href="#" class="btn btn-sm btn-outline-primary">View Expenses</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="card mb-3">
+								<div class="card-body">
+								<h5 class="card-title">Authors</h5>
+								<h2>1000 + </h2>
+								<a href="#" class="btn btn-sm btn-outline-primary">View Authors</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="card mb-3">
+								<div class="card-body">
+								<h5 class="card-title">Publishers</h5>
+								<h2>1000 + </h2>
+								<a href="#" class="btn btn-sm btn-outline-primary">Publishers</a>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
+
+				<div class="container">
+					<div class="row">
+						<div class="col-8">This is the col</div>
+						<div class="col-4"></div>
+					</div>
+				</div>
+				{% endblock %}
 			</div>
 
 		</div>

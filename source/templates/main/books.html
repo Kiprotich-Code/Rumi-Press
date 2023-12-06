@@ -8,7 +8,7 @@
 
 <h1>Books</h1>
 {% if books %}
-<table class="table">
+<table class="table table-bordered">
   <thead class="thead-dark">
     <tr>
       <th scope="col"></th>
@@ -37,9 +37,9 @@
             {{ genre.name }}{% if not forloop.last %}, {% endif %}
         {% endfor %}
       </td>
-      <td><a href="{% url 'book_details' pk=book.pk %}">Details</a></td>
-      <td><a href="{% url 'update_book' book.book_id%}">Update</a></td>
-      <td><a href="{% url 'delete_book' book.book_id%}">Delete</a></td>
+      <td><a href="{% url 'book_details' pk=book.pk %}" class="btn btn-outline-success btn-sm btn-block">Details</a></td>
+      <td><a href="{% url 'update_book' book.book_id%}" class="btn btn-outline-primary btn-sm btn-block">Update</a></td>
+      <td><a href="{% url 'delete_book' book.book_id%}" class="btn btn-outline-danger btn-sm btn-block">Delete</a></td>
     </tr>
   </tbody>
   {% endfor %}

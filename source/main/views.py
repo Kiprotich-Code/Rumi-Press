@@ -167,6 +167,12 @@ def update_publisher(request, pub_id):
 #-------------------------------------------------------#
 #------------Views for Category Model-------------------#
 #-------------------------------------------------------#
+class CategoryListView(generic.ListView):
+    model = Category
+    context_object_name = 'categories'
+    template_name = 'main/categories.html'
+
+
 def add_category(request):
     form = AddCategory
     if request.method == 'POST':
@@ -179,12 +185,12 @@ def add_category(request):
     return render(request, 'main/add_category.html', context)
 
 
-def update_category(request, cat_id):
-    category = category.objects.get(pk=cat_id)
+def update_category(request, id):
+    category = Category.objects.get(pk=id)
     form = AddCategory(request.POST or None, instance=category)
     if form.is_valid():
         form.save()
-        return redirect('books')
+        return redirect('categories')
     
     context = {'category': category, 'form': form}
     return render(request, 'main/update_category.html', context)
