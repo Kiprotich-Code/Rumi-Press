@@ -23,7 +23,7 @@
                 <nav class="menu">
                     <ul class="menu-bar">
                         <li><a class="nav-link text-dark" href="/" id="signin">Home</a></li>
-                        <li><a class="nav-link text-dark" href="/" id="signin">Sign In</a></li>
+                        <li><a class="nav-link text-dark" href="{% url 'signin'%}" id="signin">Sign In</a></li>
                     </ul>
                 </nav>
             </div>
@@ -33,7 +33,7 @@
                         <input type="search" name="search" placeholder="Search" />
                         <i class="bx bx-search" aria-hidden="true"></i>
                     </form>
-                    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Join Us</button>
+                    <a class="btn btn-outline-primary" href="{% url 'signin'%}" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a>
                 </div>
 
                 <button id="hamburger" aria-label="hamburger" aria-haspopup="true" aria-expanded="false">
@@ -44,12 +44,15 @@
     </header>
 
     <!-- landing page  -->
+   
     <div class="home">
         <div class="home--content">
             <h1>Welcome to Rumi-Press</h1>
             <p>The Leading Distributor in the World</p>
         </div>
     </div>
+    {% block content %}
+    {% endblock %}
     <script src="{% static 'js/script.js'%}"></script>
 </body>
 

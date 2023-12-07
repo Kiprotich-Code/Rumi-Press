@@ -3,29 +3,30 @@ from django.views import generic
 from .models import *
 from .forms import *
 import plotly.express as px
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
     return render(request, 'base.html')
 
+@login_required()
 def home(request):
     return render(request, 'main/dashboard.html')
 
 #-------------------------------------------------------#
 #------------Views for Authors Model--------------------#
-#-------------------------------------------------------#
 class AuthorsListView(generic.ListView):
     model = Authors
     context_object_name = 'authors'
     template_name = 'main/authors.html'
     paginate_by = 4
 
-
 class AuthorsDetailView(generic.DetailView):
     model = Authors
     template_name = 'main/author_details.html'
     context_object_name = 'author'
 
+@login_required()
 def add_authors(request):
     form = AddAuthorForm
     if request.method == 'POST':
@@ -37,11 +38,13 @@ def add_authors(request):
     context = {'form': form}
     return render(request, 'main/add_authors.html', context)
 
+@login_required()
 def delete_author(request, author_id):
     author = Authors.objects.get(pk=author_id)
     author.delete()
     return redirect('authors')
 
+@login_required()
 def update_author(request, author_id):
     author = Authors.objects.get(pk=author_id)
     form = AddAuthorForm(request.POST or None, instance=author)
@@ -65,6 +68,8 @@ class BooksDetailView(generic.DetailView):
     template_name = 'main/book_details.html'
     context_object_name = 'books'
 
+
+@login_required()
 def add_books(request):
     form = AddBookForm
     if request.method == 'POST':
@@ -77,12 +82,13 @@ def add_books(request):
     context = {'form': form}
     return render(request, 'main/add_book.html', context)
 
-
+@login_required()
 def delete_book(request, book_id):
     book = Books.objects.get(pk=book_id)
     book.delete()
     return redirect('books')
 
+@login_required()
 def update_book(request, book_id):
     book = Books.objects.get(pk=book_id)
     form = AddBookForm(request.POST or None, instance=book)
@@ -100,6 +106,7 @@ class ExpenseListView(generic.ListView):
     context_object_name = 'expenses'
     template_name = 'main/expenses.html'
 
+@login_required()
 def add_expense(request):
     form = AddExpenseForm
     if request.method == 'POST':
@@ -111,13 +118,13 @@ def add_expense(request):
     context = {'form': form}
     return render(request, 'main/add_expense.html', context)
 
-
+@login_required()
 def delete_expense(request, expense_id):
     expense = Expense.objects.get(pk=expense_id)
     expense.delete()
     return redirect('expenses')
 
-
+@login_required()
 def update_expense(request, expense_id):
     expense = Expense.objects.get(pk=expense_id)
     form = AddExpenseForm(request.POST or None, instance=expense)
@@ -137,6 +144,8 @@ class PublisherListView(generic.ListView):
     context_object_name = 'publishers'
     template_name = 'main/publishers.html'
 
+
+@login_required()
 def add_publisher(request):
     form = AddPublisher
     if request.method == 'POST':
@@ -149,12 +158,14 @@ def add_publisher(request):
     return render(request, 'main/add_publisher.html', context)
 
 
+@login_required()
 def delete_publisher(request, pub_id):
     publisher = Publisher.objects.get(pk=pub_id)
     publisher.delete()
     return redirect('publishers')
 
 
+@login_required()
 def update_publisher(request, pub_id):
     publisher = Publisher.objects.get(pk=pub_id)
     form = AddPublisher(request.POST or None, instance=publisher)
@@ -173,8 +184,10 @@ class CategoryListView(generic.ListView):
     model = Category
     context_object_name = 'categories'
     template_name = 'main/categories.html'
+ 
 
 
+@login_required()
 def add_category(request):
     form = AddCategory
     if request.method == 'POST':
@@ -186,7 +199,7 @@ def add_category(request):
     context = {'form': form}
     return render(request, 'main/add_category.html', context)
 
-
+@login_required()
 def update_category(request, id):
     category = Category.objects.get(pk=id)
     form = AddCategory(request.POST or None, instance=category)
