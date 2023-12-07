@@ -27,7 +27,6 @@ body {
   letter-spacing: -0.4px;
   background-image: url("../images/ik.jpg");
   background-size: cover;
-  backdrop-filter: blur(5px);
   background-repeat: no-repeat;
   height: 100vh;
 }
@@ -42,6 +41,7 @@ body {
   padding: 20px;
   float: right;
   width: max-content;
+  backdrop-filter: blur(5px);
 }
 
 .home--content > h1 {

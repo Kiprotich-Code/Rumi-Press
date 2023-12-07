@@ -2,9 +2,29 @@
 
 {% block content %}
 <form method="POST">
-    <div class="mb-3">
+  <div class="form-group p-2">
+    <h3>Add Book</h3>
     {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" class="btn btn-primary" value="Add Book">
+    <div class="row">
+      <div class="col col-sm-12 col-md-8 mb-3">
+        {{form.book_id}}<br>
+        {{form.title}}<br>
+        {{form.subtitle}}<br>
+        {{form.publisher}}<br>
+        {{form.published_date}}
+      </div>
+      <div class="col mh-50 col-sm-12 col-md-4">
+        <div class="d-flex flex-column">
+        <label for="authors" class="fw-bold">Choose author: </label>
+        {{form.authors}}<br>
+        </div>
+        <div class="d-flex flex-column mb-3">
+        <label for="authors" class="fw-bold">Choose Category: </label>
+        {{form.category}}
+        </div>
+      </div>
+    </div>
+    <input type="submit" class="btn btn-md btn-primary" value="Add Book">
+    </div>
   </form>
 {% endblock %}

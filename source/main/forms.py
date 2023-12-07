@@ -11,17 +11,24 @@ class AddAuthorForm(ModelForm):
 class AddBookForm(ModelForm):
     authors = forms.ModelMultipleChoiceField(
             queryset = Authors.objects.all(),
-            widget = forms.CheckboxSelectMultiple 
+            widget = forms.CheckboxSelectMultiple
         )
 
     category = forms.ModelMultipleChoiceField(
             queryset = Category.objects.all(),
-            widget = forms.CheckboxSelectMultiple 
+            widget = forms.CheckboxSelectMultiple
         )
     class Meta:
         model = Books
         fields = '__all__'
 
+        widgets = {
+            'book_id': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Book ID'}),
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Book Title'}),
+            'subtitle': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Book Subtitle'}),
+            'publisher': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Book Publisher'}),         
+            'published_date': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter the Date it Was Published'})         
+        }
 
 class AddExpenseForm(ModelForm):
     class Meta:
