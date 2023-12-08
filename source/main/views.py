@@ -4,6 +4,7 @@ from .models import *
 from .forms import *
 import plotly.express as px
 from django.contrib.auth.decorators import login_required
+from django.db.models import Sum
 
 # Create your views here.
 def index(request):
@@ -13,7 +14,9 @@ def index(request):
 def home(request):
     total_publishers = Publisher.objects.count()
     total_authors = Authors.objects.count()
-    context = {'total_publishers': total_publishers, 'total_authors': total_authors}
+    expenses = Expense.objects.annotate(total_expenses = Sum('distribution_expense'))
+    total = expenses.first().total_expenses
+    context = {'total_publishers': total_publishers, 'total_authors': total_authors, 'total': total}
     return render(request, 'main/dashboard.html', context)
 
 #-------------------------------------------------------#
