@@ -21,11 +21,7 @@ class AddBookForm(ModelForm):
             queryset = Authors.objects.all(),
             widget = forms.SelectMultiple
         )
-
-    category = forms.ModelMultipleChoiceField(
-            queryset = Category.objects.all(),
-            widget = forms.CheckboxSelectMultiple
-        )
+    
     class Meta:
         model = Books
         fields = '__all__'
@@ -35,7 +31,8 @@ class AddBookForm(ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Book Title'}),
             'subtitle': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Book Subtitle'}),
             'publisher': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Book Publisher'}),         
-            'published_date': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter the Date it Was Published'})         
+            'published_date': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter the Date it Was Published'}),         
+            'category': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Category'})         
         }
 
 class AddExpenseForm(ModelForm):

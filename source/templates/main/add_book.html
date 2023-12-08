@@ -6,23 +6,19 @@
     <h3>Add Book</h3>
     {% csrf_token %}
     <div class="row">
-      <div class="col col-sm-12 col-md-6 mb-3">
+      <div class="col col-sm-12 col-md-8 mb-3">
         {{form.book_id}}<br>
         {{form.title}}<br>
         {{form.subtitle}}<br>
         {{form.publisher}}<br>
-        {{form.published_date}}
+        {{form.published_date}} <br>
+        {{form.category}}
         <input type="submit" class="btn btn-md btn-primary mt-3" value="Add Book">
       </div>
       
-      <div class="col mh-50 col-sm-12 col-md-3">
+      <div class="col mh-50 col-sm-12 col-md-4">
         <label for="authors" class="fw-bold">Choose author: </label>
         {{form.authors}}<br>
-      </div>
-
-      <div class="col">
-          <label for="authors" class="fw-bold">Choose Category: </label>
-          {{form.category}}
       </div>
     </div>
     
