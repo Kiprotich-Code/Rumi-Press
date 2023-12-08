@@ -4,7 +4,7 @@
 <form method="POST">
     <div class="mb-3">
     {% csrf_token %}
-    {{form.as_p}}
+    {{form.as_p}}<br>
     <input type="submit" class="btn btn-primary" value="Add Author">
   </form>
 {% endblock %}

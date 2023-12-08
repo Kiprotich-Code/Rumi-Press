@@ -11,7 +11,10 @@ def index(request):
 
 @login_required()
 def home(request):
-    return render(request, 'main/dashboard.html')
+    total_publishers = Publisher.objects.count()
+    total_authors = Authors.objects.count()
+    context = {'total_publishers': total_publishers, 'total_authors': total_authors}
+    return render(request, 'main/dashboard.html', context)
 
 #-------------------------------------------------------#
 #------------Views for Authors Model--------------------#
