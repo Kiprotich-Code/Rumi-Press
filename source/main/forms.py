@@ -30,9 +30,9 @@ class AddBookForm(ModelForm):
             'book_id': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Book ID'}),
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Book Title'}),
             'subtitle': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Book Subtitle'}),
-            'publisher': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Book Publisher'}),         
+            'publisher': forms.TextInput(attrs={'class': 'form-control form-select', 'placeholder': 'Enter Book Publisher'}),         
             'published_date': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter the Date it Was Published'}),         
-            'category': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Category'})         
+            'category': forms.TextInput(attrs={'class': 'form-control form-select', 'placeholder': 'Enter Category'})         
         }
 
 class AddExpenseForm(ModelForm):

@@ -14,8 +14,8 @@ def index(request):
 def home(request):
     total_publishers = Publisher.objects.count()
     total_authors = Authors.objects.count()
-    expenses = Expense.objects.annotate(total_expenses = Sum('distribution_expense'))
-    total = expenses.first().total_expenses
+    expenses = Expense.objects.annotate(Sum('distribution_expense'))
+    total = expenses.first()
     context = {'total_publishers': total_publishers, 'total_authors': total_authors, 'total': total}
     return render(request, 'main/dashboard.html', context)
 
@@ -77,13 +77,14 @@ class BooksDetailView(generic.DetailView):
 
 @login_required()
 def add_books(request):
-    form = AddBookForm
     if request.method == 'POST':
         form = AddBookForm(request.POST)
         if form.is_valid():
-
             form.save()
             return redirect('books')
+        
+    else:
+        form = AddBookForm()
     
     context = {'form': form}
     return render(request, 'main/add_book.html', context)
