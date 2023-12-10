@@ -19,7 +19,7 @@
 
 <body>
 
-	<div class="container-fluid p-0 d-flex h-100">
+	<div class="container-fluid p-0 d-flex">
 		<div id="bdSidebar" class="d-flex flex-column 
 					flex-shrink-0 
 					p-3 bg-primary  p-3
@@ -231,13 +231,8 @@
 					</div>
 				</div>
 
-				<div class="container">
-					<div class="row">
-						<div class="col-8">
-							{{chart|safe}}
-						</div>
-						<div class="col-4"></div>
-					</div>
+				<div class="container h-50">
+					{{chart|safe}}
 				</div>
 				{% endblock %}
 			</div>

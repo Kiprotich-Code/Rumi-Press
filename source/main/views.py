@@ -4,7 +4,7 @@ from .models import *
 from .forms import *
 import plotly.express as px
 from django.contrib.auth.decorators import login_required
-from django.db.models import Sum
+from django.db.models import Sum, Count
 
 # Create your views here.
 def index(request):
@@ -12,6 +12,7 @@ def index(request):
 
 @login_required()
 def home(request):
+    cat = Category.objects.annotate(book_count = Count('books'))
     total_publishers = Publisher.objects.count()
     total_authors = Authors.objects.count()
     expenses = Expense.objects.annotate(total_expenses = Sum('distribution_expense'))
@@ -21,8 +22,42 @@ def home(request):
         total = expenses.first().total_expenses
     except: 
         total =  expenses.first()
-        
-    context = {'total_publishers': total_publishers, 'total_authors': total_authors, 'total': total}
+
+    # Creating a chart 
+    fig = px.bar (
+        x = [c.name for c in cat],
+        y = [c.book_count for c in cat]
+    )
+
+    # Add subtitle and title to Chart
+    fig.update_layout (
+        title = "Number of Books Per Category",
+        title_font = dict(size=24),
+        title_x = 0.5,
+        title_y = 0.01,
+
+
+        # Add Subtitles
+        annotations = [
+            dict(
+                text='Books Per Category',
+                xref='paper',
+                yref = 'paper',
+                x = 0.5,
+                y = 1.15,
+                showarrow = False,
+                font = dict(size=16),
+            )
+        ]
+    )
+
+    # Add Label to Axes 
+    fig.update_xaxes(title_text='Books Category')
+    fig.update_yaxes(title_text='Number of Books')
+
+    chart = fig.to_html()
+
+    context = {'total_publishers': total_publishers, 'total_authors': total_authors, 'total': total, 'chart': chart}
     return render(request, 'main/dashboard.html', context)
 
 #-------------------------------------------------------#
