@@ -2,7 +2,7 @@
 
 {% block content %}
 <form method="POST">
-  <div class="form-group p-2">
+  <!-- <div class="form-group p-2">
     <h3>Add Book</h3>
     {% csrf_token %}
     <div class="row">
@@ -22,6 +22,9 @@
       </div>
     </div>
     <input type="submit" class="btn btn-md btn-primary mt-3" value="Add Book">
-    </div>
+    </div> -->
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" class="btn btn-md btn-primary mt-3" value="Add Book">
   </form>
 {% endblock %}

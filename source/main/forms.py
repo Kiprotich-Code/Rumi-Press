@@ -26,21 +26,21 @@ class AddBookForm(ModelForm):
         model = Books
         fields = '__all__'
 
-        widgets = {
-            'book_id': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Book ID'}),
-            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Book Title'}),
-            'subtitle': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Book Subtitle'}),
-            'publisher': forms.TextInput(attrs={'class': 'form-control form-select', 'placeholder': 'Enter Book Publisher'}),         
-            'published_date': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter the Date it Was Published'}),         
-            'category': forms.TextInput(attrs={'class': 'form-control form-select', 'placeholder': 'Enter Category'})         
-        }
+        # widgets = {
+        #     'book_id': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Book ID'}),
+        #     'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Book Title'}),
+        #     'subtitle': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Book Subtitle'}),
+        #     'publisher': forms.TextInput(attrs={'class': 'form-control form-select', 'placeholder': 'Enter Book Publisher'}),         
+        #     'published_date': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter the Date it Was Published'}),         
+        #     'category': forms.TextInput(attrs={'class': 'form-control form-select', 'placeholder': 'Enter Category'})         
+        # }
 
 class AddExpenseForm(ModelForm):
     class Meta:
         model = Expense
         fields = '__all__'
         widgets = {
-            'book': forms.TextInput(attrs={'class': 'form-control'}),
+            # 'book': forms.TextInput(attrs={'class': 'form-control'}),
             'distribution_date': forms.TextInput(attrs={'class': 'form-control'}),
             'distribution_expense': forms.TextInput(attrs={'class': 'form-control'}),
             'confirmed_by': forms.TextInput(attrs={'class': 'form-control'}),

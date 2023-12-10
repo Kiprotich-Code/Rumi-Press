@@ -14,8 +14,14 @@ def index(request):
 def home(request):
     total_publishers = Publisher.objects.count()
     total_authors = Authors.objects.count()
-    expenses = Expense.objects.annotate(Sum('distribution_expense'))
-    total = expenses.first()
+    expenses = Expense.objects.annotate(total_expenses = Sum('distribution_expense'))
+
+    # Expense Error 
+    try:
+        total = expenses.first().total_expenses
+    except: 
+        total =  expenses.first()
+        
     context = {'total_publishers': total_publishers, 'total_authors': total_authors, 'total': total}
     return render(request, 'main/dashboard.html', context)
 
