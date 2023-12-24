@@ -3,7 +3,7 @@
 </head>
 
 {% block content %}
-<div class="w-50 position-absolute top-50 start-50 translate-middle p-4 bg-primary text-white rounded">
+<div class="w-50 position-absolute top-50 start-50 translate-middle p-4 border border-3 border-secondary rounded">
 <form method="post" >
     {%csrf_token%}
     <h3>Welcome, Login</h3>
@@ -16,7 +16,7 @@
         <label for="password" class="form-label">Password</label>
         <input type="password" class="form-control" name="password">
       </div>
-    <button type="submit" class="btn btn-secondary">Login</button>
+    <button type="submit" class="btn btn-outline-secondary">Login</button>
 </form>
 </div>
 {% endblock %}
