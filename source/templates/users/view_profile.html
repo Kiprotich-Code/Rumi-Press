@@ -1,0 +1,11 @@
+{% extends '../main/dashboard.html'%}
+
+
+{% block content %}
+<div class="container">
+    <h3 class="fw-light"> Username: @{{prof.username}}</h3>
+    <h3 class="fw-light"> Name: {{prof.profile.full_names}}</h3>
+    <h3 class="fw-light"> Role: {{prof.profile.role}}</h3>
+
+</div>
+{% endblock %}

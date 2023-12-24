@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     # Installed Apps
     'main',
     'users',
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +133,7 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_URL = '/signin'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'

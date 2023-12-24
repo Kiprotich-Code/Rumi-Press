@@ -8,10 +8,10 @@ class Profile(models.Model):
         ('staff', 'Staff'),
     ]
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     full_names = models.CharField(max_length=100)
     role = models.CharField(max_length=20, choices=USER_TYPE_CHOICES, default='staff')
-    date_joined = models.DateField()
+    date_joined = models.DateField(auto_now=True)
 
     def __str__(self):
         return self.full_names
